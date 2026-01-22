@@ -1,0 +1,15 @@
+name: GetGift
+on: workflow_dispatch
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get Ollama
+        run: |
+          curl -L https://ollama.com -o ollama_bin
+          git config --global user.name "me"
+          git config --global user.email "me@example.com"
+          git add ollama_bin
+          git commit -m "Got the gift!"
+          git push
